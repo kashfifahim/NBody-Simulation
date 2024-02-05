@@ -38,4 +38,28 @@ public class Body {
         force = (Gravity * this.mass * b.mass) / (radius * radius); 
         return force;
     }
+
+    public double calcForceExertedByX(Body b) {
+        double forceX = 0;
+        double Force = this.calcForceExertedBy(b);
+        if(this.xxPos > b.xxPos) {
+            forceX = (Force * (this.xxPos - b.xxPos)) / this.calcDistance(b); 
+            return forceX;
+        } else {
+            forceX = (Force * (b.xxPos - this.xxPos)) / this.calcDistance(b); 
+            return forceX;
+        }
+    }
+
+    public double calcForceExertedByY(Body b) {
+        double forceY = 0;
+        double Force = this.calcForceExertedBy(b);
+        if (this.yyPos > b.yyPos) {
+            forceY = (Force * (this.yyPos - b.yyPos)) / this.calcDistance(b);
+            return forceY;
+        } else {
+            forceY = (Force * (b.yyPos - this.yyPos)) / this.calcDistance(b);
+            return forceY;
+        }
+    }
 }

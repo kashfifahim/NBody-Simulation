@@ -1,4 +1,5 @@
 public class Body {
+    public static final double Gravity = 6.67e-11;
     public double xxPos;
     public double yyPos;
     public double xxVel;
@@ -29,5 +30,12 @@ public class Body {
         double dx = this.xxPos - b.xxPos;
         double dy = this.yyPos - b.yyPos;
         return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    public double calcForceExertedBy(Body b) {
+        double force = 0.0;
+        double radius = this.calcDistance(b);
+        force = (Gravity * this.mass * b.mass) / (radius * radius); 
+        return force;
     }
 }

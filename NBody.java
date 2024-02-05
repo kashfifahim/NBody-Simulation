@@ -31,6 +31,13 @@ public class NBody {
         String filename = args[2];
         double radius = readRadius(filename);
         Body[] bodies = readBodies(filename);
-    
+
+        // System.out.println(T);
+        // System.out.println(dt);
+        // System.out.println(filename);
+        // System.out.println(radius);
+        // for (Body body: bodies) {
+        //     System.out.println(body.imgFileName);
+        // }
     }
 }

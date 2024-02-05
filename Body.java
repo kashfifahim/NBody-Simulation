@@ -80,4 +80,20 @@ public class Body {
         }
         return netForceY;
     }
+
+    public void update(double dt, double fX, double fY) {
+        // Calculate the acceleration using the provided x and y forces
+        // aNetX = FnetX/m
+        double netAccelerationX = fX / this.mass;
+        double netAccelerationY = fY / this.mass;
+         
+        // Calculate the new velocity
+        this.xxVel = this.xxVel + (dt * netAccelerationX); 
+        this.yyVel = this.yyVel + (dt * netAccelerationY); 
+
+        // Calculate the new position
+        this.xxPos = this.xxPos + (dt * this.xxVel);
+        this.yyPos = this.yyPos + (dt * this.yyVel);
+    }
+
 }
